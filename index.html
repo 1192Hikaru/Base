@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>JavaScriptマップAPI x ローカルサーチAPI x ヒートマップ</title>
+</head>
+<body>
+<div style="width:620px; margin-left:auto; margin-right:auto;">
+<h1>東京23区マクドナルド分布</h1>
+
+<div id="map" style="width:600px; height:480px;"></div>
+
+<p>
+<!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
+<a href="http://developer.yahoo.co.jp/about">
+<img src="http://i.yimg.jp/images/yjdn/yjdn_attbtn1_125_17.gif" title="Webサービス by Yahoo! JAPAN" alt="Web Services by Yahoo! JAPAN" width="125" height="17" border="0" style="margin:15px 15px 15px 15px"></a>
+<!-- End Yahoo! JAPAN Web Services Attribution Snippet -->
+</p>
+
+</div>
+<script src="http://js.api.olp.yahooapis.jp/OpenLocalPlatform/V1/jsapi?appid=＜あなたのアプリケーションID＞"></script>
+<script>
+// 地図のオプションを指定
+var mapOptions = {
+    "configure": {
+        "hybridPhoto": true,
+        "scrollWheelZoom": true
+    }
+};
+// 地図を初期化
+var map = new Y.Map("map", mapOptions);
+map.addControl(new Y.LayerSetControl());
+map.addControl(new Y.ZoomControl());
+map.drawMap(new Y.LatLng(35.665627,139.730738), 13, Y.LayerSetId.PHOTO);
+
+</script>
+</body>
+</html>
